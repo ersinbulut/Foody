@@ -123,6 +123,9 @@ namespace Foody.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductID"));
 
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -142,6 +145,8 @@ namespace Foody.DataAccessLayer.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ProductID");
+
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("Products");
                 });
@@ -219,6 +224,22 @@ namespace Foody.DataAccessLayer.Migrations
                     b.HasKey("SocialMediaID");
 
                     b.ToTable("SocialMedias");
+                });
+
+            modelBuilder.Entity("Foody.EntityLayer.Concrete.Product", b =>
+                {
+                    b.HasOne("Foody.EntityLayer.Concrete.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Foody.EntityLayer.Concrete.Category", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
