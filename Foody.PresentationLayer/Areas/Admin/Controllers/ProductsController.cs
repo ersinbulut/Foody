@@ -21,7 +21,8 @@ namespace Foody.PresentationLayer.Areas.Admin.Controllers
 
         public IActionResult ProductListWithCategory()
         {
-            return View();
+            var values= _productService.TProductListWithCategory();
+            return View(values);
         }
     }
 }
