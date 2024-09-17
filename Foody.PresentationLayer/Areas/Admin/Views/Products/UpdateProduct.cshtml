@@ -1,13 +1,13 @@
 ﻿@model Product
 @{
-    ViewData["Title"] = "CreateProduct";
+    ViewData["Title"] = "UpdateProduct";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h3 class="fw-bold mb-3">Products</h3>
+            <h3 class="fw-bold mb-3">Categories</h3>
             <ul class="breadcrumbs mb-3">
                 <li class="nav-home">
                     <a href="#">
@@ -18,13 +18,13 @@
                     <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Add Product</a>
+                    <a href="#">Update Product</a>
                 </li>
                 <li class="separator">
                     <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">New Create Product</a>
+                    <a href="#">Update Product Page</a>
                 </li>
             </ul>
         </div>
@@ -32,10 +32,11 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Add Product Panel</div>
+                        <div class="card-title">Update Product Panel</div>
                     </div>
                     <div class="card-body">
                         <form method="post">
+                            <input type="hidden" asp-for="ProductID" />
                             <label>Product Name</label>
                             <input type="text" asp-for="ProductName" class="form-control" />
                             <br />
@@ -54,7 +55,7 @@
                             <label>Product Category</label>
                             <select asp-for="CategoryID" class="form-control" asp-items="ViewBag.categories"></select>
                             <br />
-                            <button class="btn btn-primary">Create Product</button>
+                            <button class="btn btn-success">Update Product</button>
                         </form>
                     </div>
                 </div>
@@ -62,4 +63,5 @@
         </div>
     </div>
 </div>
+
 
