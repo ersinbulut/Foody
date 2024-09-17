@@ -1,14 +1,13 @@
-﻿@model Foody.DtoLayer.Dtos.SliderDtos.UpdateSliderDto
-
+﻿@model UpdateFeatureDto
 @{
-    ViewData["Title"] = "UpdateSlider";
+    ViewData["Title"] = "UpdateFeature";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h3 class="fw-bold mb-3">Slider</h3>
+            <h3 class="fw-bold mb-3">Features</h3>
             <ul class="breadcrumbs mb-3">
                 <li class="nav-home">
                     <a href="#">
@@ -19,13 +18,13 @@
                     <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Update Slider</a>
+                    <a href="#">Update Feature</a>
                 </li>
                 <li class="separator">
                     <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Update Slider</a>
+                    <a href="#">Update Feature</a>
                 </li>
             </ul>
         </div>
@@ -33,18 +32,18 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Update Slider Panel</div>
+                        <div class="card-title">Update Feature Panel</div>
                     </div>
                     <div class="card-body">
                         <form method="post">
-                            <input type="hidden" asp-for="SliderID" />
-                            <label>Slider Title</label>
+                            <input type="hidden" asp-for="FeatureID" />
+                            <label>Title</label>
                             <input type="text" asp-for="Title" class="form-control" />
                             <br />
-                            <label>Slider ImageUrl</label>
-                            <input type="text" asp-for="ImageUrl" class="form-control" />
+                            <label>Description</label>
+                            <input type="text" asp-for="Description" class="form-control" />
                             <br />
-                            <button class="btn btn-success">Update Slider</button>
+                            <button class="btn btn-success">Update Feature</button>
                         </form>
                     </div>
                 </div>
@@ -52,6 +51,5 @@
         </div>
     </div>
 </div>
-
 
 

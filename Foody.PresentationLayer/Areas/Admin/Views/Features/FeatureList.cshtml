@@ -1,13 +1,13 @@
-﻿@model List<ResultSliderDto>
+﻿@model List<ResultFeatureDto>
 @{
-    ViewData["Title"] = "SliderList";
+    ViewData["Title"] = "FeatureList";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h3 class="fw-bold mb-3">Sliders</h3>
+            <h3 class="fw-bold mb-3">FeatureList</h3>
             <ul class="breadcrumbs mb-3">
                 <li class="nav-home">
                     <a href="#">
@@ -18,13 +18,13 @@
                     <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Slider List </a>
+                    <a href="#">Feature List </a>
                 </li>
                 <li class="separator">
                     <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Slider Operations</a>
+                    <a href="#">Feature Operations</a>
                 </li>
             </ul>
         </div>
@@ -32,14 +32,16 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Slider Table</div>
+                        <div class="card-title">Feature Table</div>
                     </div>
                     <div class="card-body">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">Slider ID</th>
+                                    <th scope="col">Feature ID</th>
                                     <th scope="col">Title</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Delete</th>
                                     <th scope="col">Update</th>
                                 </tr>
@@ -48,15 +50,17 @@
                                 @foreach (var item in Model)
                                 {
                                     <tr>
-                                        <td>@item.SliderID</td>
+                                        <td>@item.FeatureID</td>
                                         <td>@item.Title</td>
-                                        <td><a href="/Admin/Sliders/DeleteSlider/@item.SliderID" class="btn btn-danger">Delete</a></td>
-                                        <td><a href="/Admin/Sliders/UpdateSlider/@item.SliderID" class="btn btn-success">Update</a></td>
+                                        <td>@item.Description</td>
+                                        <td>@item.Status</td>
+                                        <td><a href="/Admin/Features/DeleteFeature/@item.FeatureID" class="btn btn-danger">Delete</a></td>
+                                        <td><a href="/Admin/Features/UpdateFeature/@item.FeatureID" class="btn btn-success">Update</a></td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
-                        <a href="/Admin/Sliders/CreateSlider/" class="btn btn-primary">Add New Slider</a>
+                        <a href="/Admin/Features/CreateFeature/" class="btn btn-primary">Add New Feature</a>
                     </div>
                 </div>
             </div>
