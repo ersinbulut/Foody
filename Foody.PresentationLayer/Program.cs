@@ -47,6 +47,18 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseStatusCodePages(async x =>
+{
+	if (x.HttpContext.Response.StatusCode ==404)
+	{
+		x.HttpContext.Response.Redirect("/ErrorPages/ErrorPage404/");
+	};
+});
+
+app.MapControllerRoute(
+	name: "default",
+	pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
 	name: "areas",
 	pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
